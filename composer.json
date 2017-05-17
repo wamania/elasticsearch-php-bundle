@@ -1,0 +1,33 @@
+{
+	"name" : "wamania/elasticsearch-php-bundle",
+	"description" : "Bundle for ElasticSearch in Symfony",
+	"keywords" : [
+		"elasticsearch",
+		"symfony",
+		"php"
+	],
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Wamania",
+			"homepage" : "http://wamania.com"
+		}
+	],
+	"require" : {
+		"php" : ">=5.5.0",
+		"doctrine/annotations" : "^1.0",
+		"symfony/serializer": "^3.2"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "^4.8"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Wamania\\ElasticSearch\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Wamania\\ElasticSearch\\Tests\\" : "test/"
+		}
+	}
+}
