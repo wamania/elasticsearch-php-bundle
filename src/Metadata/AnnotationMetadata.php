@@ -1,10 +1,23 @@
 <?php
 namespace Wamania\ElasticSearch\Metadata;
 
-use Metadata\PropertyMetadata as BasePropertyMetadata;
-
-class PropertyMetadata extends BasePropertyMetadata implements FieldMetadataInterface
+class AnnotationMetadata implements FieldMetadataInterface
 {
+    /**
+     * Constructor
+     *
+     * @param string $name
+     */
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @var string
+     */
+    public $name;
+
     /**
      * @var string
      */

@@ -66,10 +66,15 @@ class MappingGenerator
 
                 default:
 
-                    if (null !== $propertyMetadata->fieldMapping['fields']) {
-                        foreach ($propertyMetadata->fieldMapping['fields'] as $field) {
-
+                    if (isset($propertyMetadata->fieldMapping['fields'])) {
+                        $fields = [];
+                        foreach ($propertyMetadata->fieldMapping['fields'] as $name => $field) {
+                            $fields[$name] = array_merge(
+                                ['type' => $field->fieldType],
+                                array_filter($field->fieldMapping)
+                            );
                         }
+                        $propertyMetadata->fieldMapping['fields'] = $fields;
                     }
 
                     $mapping[$propertyMetadata->fieldName] = array_merge(
