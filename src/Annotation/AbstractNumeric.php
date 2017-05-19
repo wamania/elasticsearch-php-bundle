@@ -2,167 +2,58 @@
 
 namespace Wamania\ElasticSearch\Annotation;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Doctrine\Common\Annotations\Annotation;
 
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-abstract class AbstractNumeric
+abstract class AbstractNumeric extends Annotation
 {
     /**
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * @var boolean
      */
-    protected $coerce;
+    public $coerce;
 
     /**
      * @var float
      */
-    protected $boost;
+    public $boost;
 
     /**
      * @var boolean
      */
-    protected $docValues;
+    public $docValues;
 
     /**
      * @var boolean
      */
-    protected $ignoreMalformed;
+    public $ignore_malformed;
 
     /**
      * @var boolean
      */
-    protected $includeInAll;
+    public $include_in_all;
 
     /**
      * @var boolean
      */
-    protected $index;
+    public $index;
 
     /**
      * @var string
      */
-    protected $nullValue;
+    public $null_value;
 
     /**
      * @var boolean
      */
-    protected $store;
-
-    /**
-     * Constructor
-     *
-     * @param array $options
-     */
-    public function __construct(array $options)
-    {
-        $converter = new CamelCaseToSnakeCaseNameConverter();
-
-        foreach ($options as $key => $value) {
-            $property = $converter->normalize($key);
-            if (!property_exists($this, $property)) {
-                throw new \InvalidArgumentException(sprintf('Property "%s" does not exist', $property));
-            }
-
-            $this->$property = $value;
-        }
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get coerce
-     *
-     * @return boolean
-     */
-    public function getCoerce()
-    {
-        return $this->coerce;
-    }
-
-    /**
-     * Get boost
-     *
-     * @return float
-     */
-    public function getBoost()
-    {
-        return $this->boost;
-    }
-
-    /**
-     * Get docValues
-     *
-     * @return boolean
-     */
-    public function getDocValues()
-    {
-        return $this->docValues;
-    }
-
-    /**
-     * Get ignoreMalformed
-     *
-     * @return boolean
-     */
-    public function getIgnoreMalformed()
-    {
-        return $this->ignoreMalformed;
-    }
-
-    /**
-     * Get includeInAll
-     *
-     * @return boolean
-     */
-    public function getIncludeInAll()
-    {
-        return $this->includeInAll;
-    }
-
-    /**
-     * Get index
-     *
-     * @return boolean
-     */
-    public function getIndex()
-    {
-        return $this->index;
-    }
-
-    /**
-     * Get nullValue
-     *
-     * @return string
-     */
-    public function getNullValue()
-    {
-        return $this->nullValue;
-    }
-
-    /**
-     * Get store
-     *
-     * @return boolean
-     */
-    public function getStore()
-    {
-        return $this->store;
-    }
+    public $store;
 }

@@ -2,13 +2,15 @@
 
 namespace Wamania\ElasticSearch\Annotation;
 
+use Doctrine\Common\Annotations\Annotation;
+
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-final class Id
+final class Id extends Annotation
 {
 
 }

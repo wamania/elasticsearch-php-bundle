@@ -2,287 +2,98 @@
 
 namespace Wamania\ElasticSearch\Annotation;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Doctrine\Common\Annotations\Annotation;
 
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-final class Text
+final class Text extends Annotation implements AnnotationInterface
 {
     /**
      * @var string
      */
-    private $name;
+    public $name;
 
     /**
      * @var string
      */
-    private $analyzer;
+    public $analyzer;
 
     /**
      * @var float
      */
-    private $boost;
+    public $boost;
 
     /**
      * @var boolean
      */
-    private $eagerGlobalOrdinals;
+    public $eager_global_ordinals;
 
     /**
      * @var boolean
      */
-    private $fielddata;
+    public $fielddata;
 
     /**
      * @var array
      */
-    private $fielddataFrequencyFilter;
+    public $fielddata_frequency_filter;
 
     /**
      * @var array
      */
-    private $fields;
+    public $fields;
 
     /**
      * @var boolean
      */
-    private $includeInAll;
+    public $include_in_all;
 
     /**
      * @var boolean
      */
-    private $index;
+    public $index;
 
     /**
      * @var string
      */
-    private $indexOptions;
+    public $index_options;
 
     /**
      * @var boolean
      */
-    private $norms;
+    public $norms;
 
     /**
      * @var integer
      */
-    private $positionIncrementGap;
+    public $position_increment_gap;
 
     /**
      * @var boolean
      */
-    private $store;
+    public $store;
 
     /**
      * @var string
      */
-    private $searchAnalyzer;
+    public $search_analyzer;
 
     /**
      * @var string
      */
-    private $searchQuoteAnalyzer;
+    public $search_quote_analyzer;
 
     /**
      * @var string
      */
-    private $similarity;
+    public $similarity;
 
     /**
      * @var string
      */
-    private $termVector;
-
-    /**
-     * Constructor
-     *
-     * @param array $options
-     */
-    public function __construct(array $options)
-    {
-        $converter = new CamelCaseToSnakeCaseNameConverter();
-
-        foreach ($options as $key => $value) {
-            $property = $converter->normalize($key);
-            if (!property_exists($this, $property)) {
-                throw new \InvalidArgumentException(sprintf('Property "%s" does not exist', $property));
-            }
-
-            $this->$property = $value;
-        }
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get analyzer
-     *
-     * @return string
-     */
-    public function getAnalyzer()
-    {
-        return $this->analyzer;
-    }
-
-    /**
-     * Get boost
-     *
-     * @return float
-     */
-    public function getBoost()
-    {
-        return $this->boost;
-    }
-
-    /**
-     * Get eagerGlobalOrdinals
-     *
-     * @return boolean
-     */
-    public function getEagerGlobalOrdinals()
-    {
-        return $this->eagerGlobalOrdinals;
-    }
-
-    /**
-     * Get fielddata
-     *
-     * @return boolean
-     */
-    public function getFielddata()
-    {
-        return $this->fielddata;
-    }
-
-    /**
-     * Get fielddataFrequencyFilter
-     *
-     * @return array
-     */
-    public function getFielddataFrequencyFilter()
-    {
-        return $this->fielddataFrequencyFilter;
-    }
-
-    /**
-     * Get fields
-     *
-     * @return array
-     */
-    public function getFields()
-    {
-        return $this->fields;
-    }
-
-    /**
-     * Get includeInAll
-     *
-     * @return boolean
-     */
-    public function getIncludeInAll()
-    {
-        return $this->includeInAll;
-    }
-
-    /**
-     * Get index
-     *
-     * @return boolean
-     */
-    public function getIndex()
-    {
-        return $this->index;
-    }
-
-    /**
-     * Get indexOptions
-     *
-     * @return string
-     */
-    public function getIndexOptions()
-    {
-        return $this->indexOptions;
-    }
-
-    /**
-     * Get norms
-     *
-     * @return boolean
-     */
-    public function getNorms()
-    {
-        return $this->norms;
-    }
-
-    /**
-     * Get positionIncrementGap
-     *
-     * @return integer
-     */
-    public function getPositionIncrementGap()
-    {
-        return $this->positionIncrementGap;
-    }
-
-    /**
-     * Get store
-     *
-     * @return boolean
-     */
-    public function getStore()
-    {
-        return $this->store;
-    }
-
-    /**
-     * Get searchAnalyzer
-     *
-     * @return string
-     */
-    public function getSearchAnalyzer()
-    {
-        return $this->searchAnalyzer;
-    }
-
-    /**
-     * Get searchQuoteAnalyzer
-     *
-     * @return string
-     */
-    public function getSearchQuoteAnalyzer()
-    {
-        return $this->searchQuoteAnalyzer;
-    }
-
-    /**
-     * Get similarity
-     *
-     * @return string
-     */
-    public function getSimilarity()
-    {
-        return $this->similarity;
-    }
-
-    /**
-     * Get termVector
-     *
-     * @return string
-     */
-    public function getTermVector()
-    {
-        return $this->termVector;
-    }
+    public $termVector;
 }

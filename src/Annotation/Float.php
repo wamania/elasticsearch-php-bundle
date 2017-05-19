@@ -4,11 +4,11 @@ namespace Wamania\ElasticSearch\Annotation;
 
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-final class Float extends AbstractNumeric
+final class Float extends AbstractNumeric implements AnnotationInterface
 {
 
 }

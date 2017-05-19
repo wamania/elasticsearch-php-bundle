@@ -2,122 +2,43 @@
 
 namespace Wamania\ElasticSearch\Annotation;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Doctrine\Common\Annotations\Annotation;
 
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-final class Boolean
+final class Boolean extends Annotation implements AnnotationInterface
 {
     /**
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * @var float
      */
-    protected $boost;
+    public $boost;
 
     /**
      * @var boolean
      */
-    protected $docValues;
+    public $doc_values;
 
     /**
      * @var boolean
      */
-    protected $index;
+    public $index;
 
     /**
      * @var string
      */
-    protected $nullValue;
+    public $null_value;
 
     /**
      * @var boolean
      */
-    protected $store;
-
-    /**
-     * Constructor
-     *
-     * @param array $options
-     */
-    public function __construct(array $options)
-    {
-        $converter = new CamelCaseToSnakeCaseNameConverter();
-
-        foreach ($options as $key => $value) {
-            $property = $converter->normalize($key);
-            if (!property_exists($this, $property)) {
-                throw new \InvalidArgumentException(sprintf('Property "%s" does not exist', $property));
-            }
-
-            $this->$property = $value;
-        }
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get boost
-     *
-     * @return float
-     */
-    public function getBoost()
-    {
-        return $this->boost;
-    }
-
-    /**
-     * Get docValues
-     *
-     * @return boolean
-     */
-    public function getDocValues()
-    {
-        return $this->docValues;
-    }
-
-    /**
-     * Get index
-     *
-     * @return boolean
-     */
-    public function getIndex()
-    {
-        return $this->index;
-    }
-
-    /**
-     * Get nullValue
-     *
-     * @return string
-     */
-    public function getNullValue()
-    {
-        return $this->nullValue;
-    }
-
-    /**
-     * Get store
-     *
-     * @return boolean
-     */
-    public function getStore()
-    {
-        return $this->store;
-    }
+    public $store;
 }

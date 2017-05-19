@@ -4,24 +4,14 @@ namespace Wamania\ElasticSearch\Annotation;
 
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-final class ScaledFloat extends AbstractNumeric
+final class ScaledFloat extends AbstractNumeric implements AnnotationInterface
 {
     /**
      * @var float
      */
-    protected $scalingFactor;
-
-    /**
-     * Get scalingFactor
-     *
-     * @return float
-     */
-    public function getScalingFactor()
-    {
-        return $this->scalingFactor;
-    }
+    public $scaling_factor;
 }

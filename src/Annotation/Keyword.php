@@ -2,242 +2,83 @@
 
 namespace Wamania\ElasticSearch\Annotation;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Doctrine\Common\Annotations\Annotation;
 
 /**
  * @Annotation
- * @Target({"PROPERTY", "METHOD"})
+ * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  *
  * @author Guillaume Affringue
  */
-final class Keyword
+final class Keyword extends Annotation implements AnnotationInterface
 {
     /**
      * @var string
      */
-    private $name;
+    public $name;
 
     /**
      * @var float
      */
-    private $boost;
+    public $boost;
 
     /**
      * @var boolean
      */
-    private $docValues;
+    public $docValues;
 
     /**
      * @var boolean
      */
-    private $eagerGlobalOrdinals;
+    public $eager_global_ordinals;
 
     /**
      * @var array
      */
-    private $fields;
+    public $fields;
 
     /**
      * @var integer
      */
-    private $ignoreAbove;
+    public $ignore_above;
 
     /**
      * @var boolean
      */
-    private $includeInAll;
+    public $include_in_all;
 
     /**
      * @var boolean
      */
-    private $index;
+    public $index;
 
     /**
      * @var string
      */
-    private $indexOptions;
+    public $index_options;
 
     /**
      * @var boolean
      */
-    private $norms;
+    public $norms;
 
     /**
      * @var string
      */
-    private $nullValue;
+    public $null_value;
 
     /**
      * @var boolean
      */
-    private $store;
+    public $store;
 
     /**
      * @var string
      */
-    private $similarity;
+    public $similarity;
 
     /**
      * @var string
      */
-    private $normalizer;
-
-    /**
-     * Constructor
-     *
-     * @param array $options
-     */
-    public function __construct(array $options)
-    {
-        $converter = new CamelCaseToSnakeCaseNameConverter();
-
-        foreach ($options as $key => $value) {
-            $property = $converter->normalize($key);
-            if (!property_exists($this, $property)) {
-                throw new \InvalidArgumentException(sprintf('Property "%s" does not exist', $property));
-            }
-
-            $this->$property = $value;
-        }
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get boost
-     *
-     * @return float
-     */
-    public function getBoost()
-    {
-        return $this->boost;
-    }
-
-    /**
-     * Get docValues
-     *
-     * @return boolean
-     */
-    public function getDocValues()
-    {
-        return $this->docValues;
-    }
-
-    /**
-     * Get eagerGlobalOrdinals
-     *
-     * @return boolean
-     */
-    public function getEagerGlobalOrdinals()
-    {
-        return $this->eagerGlobalOrdinals;
-    }
-
-    /**
-     * Get fields
-     *
-     * @return array
-     */
-    public function getFields()
-    {
-        return $this->fields;
-    }
-
-    /**
-     * Get ignoreAbove
-     *
-     * @return integer
-     */
-    public function getIgnoreAbove()
-    {
-        return $this->ignoreAbove;
-    }
-
-    /**
-     * Get includeInAll
-     *
-     * @return boolean
-     */
-    public function getIncludeInAll()
-    {
-        return $this->includeInAll;
-    }
-
-    /**
-     * Get index
-     *
-     * @return boolean
-     */
-    public function getIndex()
-    {
-        return $this->index;
-    }
-
-    /**
-     * Get indexOptions
-     *
-     * @return string
-     */
-    public function getIndexOptions()
-    {
-        return $this->indexOptions;
-    }
-
-    /**
-     * Get norms
-     *
-     * @return boolean
-     */
-    public function getNorms()
-    {
-        return $this->norms;
-    }
-
-    /**
-     * Get nullValue
-     *
-     * @return string
-     */
-    public function getNullValue()
-    {
-        return $this->nullValue;
-    }
-
-    /**
-     * Get store
-     *
-     * @return boolean
-     */
-    public function getStore()
-    {
-        return $this->store;
-    }
-
-    /**
-     * Get similarity
-     *
-     * @return string
-     */
-    public function getSimilarity()
-    {
-        return $this->similarity;
-    }
-
-    /**
-     * Get normalizer
-     *
-     * @return string
-     */
-    public function getNormalizer()
-    {
-        return $this->normalizer;
-    }
+    public $normalizer;
 }
