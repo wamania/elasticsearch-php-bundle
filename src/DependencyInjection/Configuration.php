@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Wamania\ElasticSearch\Bundle\DependencyInjection;
+namespace Wamania\YesAnotherElasticaBundle\Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -30,7 +30,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('elasticsearch_php', 'array');
+        /*$rootNode = $treeBuilder->root('elasticsearch_php', 'array');
 
         $rootNode
             ->children()
@@ -81,7 +81,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
-        ;
+        ;*/
 
         return $treeBuilder;
     }

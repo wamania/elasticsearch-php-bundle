@@ -1,5 +1,5 @@
 <?php
-namespace Wamania\ElasticSearch\Exception;
+namespace Wamania\YesAnotherElasticaBundle\Exception;
 
 class NoNameException extends \Exception
 {

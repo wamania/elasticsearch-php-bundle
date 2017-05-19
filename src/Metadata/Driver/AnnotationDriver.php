@@ -1,6 +1,6 @@
 <?php
 
-namespace Wamania\ElasticSearch\Metadata\Driver;
+namespace Wamania\YesAnotherElasticaBundle\Metadata\Driver;
 
 use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;

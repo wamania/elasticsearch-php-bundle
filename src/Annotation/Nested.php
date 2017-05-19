@@ -1,6 +1,6 @@
 <?php
 
-namespace Wamania\ElasticSearch\Annotation;
+namespace Wamania\YesAnotherElasticaBundle\Annotation;
 
 use Doctrine\Common\Annotations\Annotation;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Wamania\ElasticSearch\Metadata;
+namespace Wamania\YesAnotherElasticaBundle\Metadata;
 
 interface FieldMetadataInterface
 {

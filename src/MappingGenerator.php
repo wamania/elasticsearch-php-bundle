@@ -1,5 +1,5 @@
 <?php
-namespace Wamania\ElasticSearch;
+namespace Wamania\YesAnotherElasticaBundle;
 
 use Metadata\MetadataFactory;
 use Wamania\ElasticSearch\Exception\NoTargetException;

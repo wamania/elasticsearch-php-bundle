@@ -1,5 +1,5 @@
 <?php
-namespace Wamania\ElasticSearch\Annotation;
+namespace Wamania\YesAnotherElasticaBundle\Annotation;
 
 interface AnnotationInterface
 {

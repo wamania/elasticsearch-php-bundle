@@ -1,8 +1,9 @@
 {
-	"name" : "wamania/elasticsearch-php-bundle",
-	"description" : "Bundle for ElasticSearch in Symfony",
+	"name" : "wamania/yes-another-elastica-bundle",
+	"description" : "Bundle for Elastica in Symfony",
 	"keywords" : [
 		"elasticsearch",
+		"elastica",
 		"symfony",
 		"php"
 	],
@@ -22,12 +23,12 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Wamania\\ElasticSearch\\" : "src/"
+			"Wamania\\YesAnotherElasticaBundle\\" : "src/"
 		}
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"Wamania\\ElasticSearch\\Tests\\" : "test/"
+			"Wamania\\YesAnotherElasticaBundle\\Tests\\" : "test/"
 		}
 	}
 }
